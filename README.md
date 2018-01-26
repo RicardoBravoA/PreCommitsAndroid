@@ -14,7 +14,7 @@ Pasos a seguir
 
 3.  **Sincronizar** el proyecto
 4.  Por primera vez ejecutar desde consola `./gradlew check` o desde Android Studio `gradlew check` para que descarguen todas las dependencias
- 	- Si tienen el error `-bash: ./gradlew: Permission denied`  ejecutar <kbd>chmod a+x gradlew</kbd> en la consola
+ 	- Si tienen el error `-bash: ./gradlew: Permission denied` ejecutar <kbd>chmod a+x gradlew</kbd> en la consola
 6.  Ejecutar: 
 	- Desde consola `./gradlew check`
 	- Desde Android Studio `gradlew check`
