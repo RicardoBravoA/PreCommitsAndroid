@@ -5,7 +5,7 @@ apply plugin: 'pmd'
 check.dependsOn 'checkstyle', 'findbugs', 'pmd', 'lint'
 
 def configDir = "${project.rootDir}/config/quality"
-def reportsDir = "${project.buildDir}/reports"
+def reportsDir = "${project.rootDir}/config/reports"
 
 task checkstyle(type: Checkstyle) {
     configFile file("$configDir/checkstyle/checkstyle.xml")
@@ -19,9 +19,9 @@ task checkstyle(type: Checkstyle) {
 
     reports {
         xml.enabled = false
-        html.enabled = true
         html {
-            destination "$reportsDir/checkstyle/checkstyle.html"
+            enabled = true
+            destination file("$reportsDir/checkstyle/checkstyle.html")
         }
     }
 }
@@ -39,9 +39,9 @@ task findbugs(type: FindBugs, dependsOn: "assembleDebug") {
 
     reports {
         xml.enabled = false
-        html.enabled = true
         html {
-            destination "$reportsDir/findbugs/findbugs.html"
+            enabled = true
+            destination file("$reportsDir/findbugs/findbugs.html")
         }
     }
 
@@ -59,9 +59,9 @@ task pmd(type: Pmd) {
 
     reports {
         xml.enabled = false
-        html.enabled = true
         html {
-            destination "$reportsDir/pmd/pmd.html"
+            enabled = true
+            destination file("$reportsDir/pmd/pmd.html")
         }
     }
 }
@@ -87,7 +87,7 @@ task detectInfer(type: Exec) {
     // Inform user if infer not present
     ignoreExitValue true
     doLast {
-        if(execResult.getExitValue() != 0) {
+        if (execResult.getExitValue() != 0) {
             throw new GradleException("Infer seems not installed. Please refer to http://fbinfer.com/docs/getting-started.html")
         }
     }
