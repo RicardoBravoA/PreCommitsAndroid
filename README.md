@@ -20,7 +20,7 @@ Pasos a seguir
 	- Desde Android Studio `gradlew check`
 	- En caso negativo se obtendrá `BUILD FAILED`
 	- En caso positivo se obtendrá `BUILD SUCCESSFUL`
-	- Se generarán los reportes en `\MiRepositorio\app\build\reports`, donde se visualizarán los errores en caso existan
+	- Se generarán los reportes en `\MiRepositorio\config\reports`, donde se visualizarán los errores en caso existan
 7. En el archivo `build.gradle` agregar `apply from: '../config/quality/quality.gradle'` para enlazar el archivo gradle que se encuentra en la carpeta <kbd>config</kbd>
 
 8. Ahora, antes de hacer un `commit` se ejecutará el análisis de nuestro código  
